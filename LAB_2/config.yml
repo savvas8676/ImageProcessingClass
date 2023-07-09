@@ -1,0 +1,58 @@
+
+#--------------------- Learning ----------------------
+# Classifier - Statistical
+classifier:
+  SVC:
+    C: 1
+    kernel: "rbf"
+    gamma: 1
+
+# Parameter Grid for Fine-tuning, for instance, a Grid Search classifier
+fine_tune:
+  allow: False
+  param_grid: [
+    {'C': [0.01,0.1, 1, 10,100,1000], 'gamma': [1,0.01,0.001, 0.0001], 'kernel': ['rbf']}
+    
+   ]
+  cv: 5
+  verbose: 2
+
+#---------------------HOG---------------------------------
+HOG: 
+  patch: 8
+  block_size: 2
+  orientations: 9
+  mine: False
+  e: 0.00001
+  
+
+# Classifier - Neural Network
+fit:
+  epochs: 100
+  batch: 60
+  verbose: "auto"
+  l_rate: 0.1
+  layer_1_filters: 6
+  layer_2_filters: 16
+  stride: 1
+  kernel_size: 3
+  limit: 0.995
+  dense_1: 120
+  dense_2: 84
+  final_layer: 10
+
+activation:
+    Conv_1: 'relu'
+    Conv_2: 'relu'
+    Dense_1: 'relu'
+    Dense_2: 'relu'
+    Final: 'softmax'
+    
+
+#Report section
+
+report:
+  visualize: True
+  model_evaluate_verbose: 2 
+  test_set: False
+  bilinear: True
